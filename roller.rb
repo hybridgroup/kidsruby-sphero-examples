@@ -1,6 +1,8 @@
 require 'sphero'
+require 'socket'
+socket = TCPSocket.new("localhost", 8080)
 
-Sphero.start '/dev/tty.Sphero-PGB-RN-SPP' do
+Sphero.start socket do
 	roll 60, FORWARD
 	keep_going 3
 
